@@ -5,3 +5,4 @@ djangorestframework==3.14.0
 pytz==2023.2
 sqlparse==0.4.3
 tzdata==2023.2
+gunicorn
