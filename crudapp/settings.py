@@ -155,3 +155,10 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.BrowsableAPIRenderer',
     ]
 }
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000", # Example for a local React app
+    "https://www.yourfrontenddomain.com",
+    "https://subdomain.yourfrontenddomain.com",
+    "https://tstfwkk.onrender.com",
+]
