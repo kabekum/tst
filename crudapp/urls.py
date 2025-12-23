@@ -21,5 +21,5 @@ urlpatterns = [
     path('', include('myapp.api.urls')),
     path('api/auth/', include('rest_framework.urls')),  # DRF browsable login
     path('api/', include('core.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
 
