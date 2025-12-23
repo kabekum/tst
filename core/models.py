@@ -3,23 +3,26 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     ROLE_CHOICES = [
-        ('admin','Admin'),
-        ('senior_lawyer','Senior Lawyer'),
-        ('junior_lawyer','Junior Lawyer'),
-        ('paralegal','Paralegal'),
-        ('intern','Intern'),
-        ('client','Client'),
+        ('admin', 'Admin'),
+        ('senior_lawyer', 'Senior Lawyer'),
+        ('junior_lawyer', 'Junior Lawyer'),
+        ('paralegal', 'Paralegal'),
+        ('intern', 'Intern'),
+        ('client', 'Client'),
     ]
     role = models.CharField(max_length=30, choices=ROLE_CHOICES, default='junior_lawyer')
     firm = models.ForeignKey('Firm', on_delete=models.SET_NULL, null=True, blank=True)
-    user_permissions = models.ManyToManyField(
-        'auth.Permission',
+
+    # Add related_name to avoid conflict with the default `user_set`
+    groups = models.ManyToManyField(
+        'auth.Group',
         blank=True,
-        related_name='custom_user_permissions'  # Add this related_name
+        related_name='custom_user_set'  # This avoids conflict with `auth.User.groups`
     )
 
     def __str__(self):
         return self.username
+
 
 class Firm(models.Model):
     name = models.CharField(max_length=255)
@@ -137,4 +140,5 @@ class ActivityLog(models.Model):
     model = models.CharField(max_length=100, blank=True)
     object_id = models.CharField(max_length=100, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
+
 
