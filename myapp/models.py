@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class UserTask(models.Model):
-    user = models.ForeignKey(core.User, on_delete=models.CASCADE)
+    user = models.ForeignKey('core.User', on_delete=models.CASCADE)
     task = models.TextField(max_length=500, blank=False, null=False)
     iscomplete = models.BooleanField(default=False)
     isfavorite = models.BooleanField(default=False)
