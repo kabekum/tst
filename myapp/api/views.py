@@ -3,7 +3,7 @@ from rest_framework import generics
 from rest_framework import status
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated, AllowAny
-from django.contrib.auth.models import User
+from core.models import User
 
 
 from myapp.models import UserTask
