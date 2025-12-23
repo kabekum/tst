@@ -1,0 +1,18 @@
+from django.contrib import admin
+from .models import *
+admin.site.register(User)
+admin.site.register(Firm)
+admin.site.register(UserProfile)
+admin.site.register(Client)
+admin.site.register(Matter)
+admin.site.register(Document)
+admin.site.register(TimeEntry)
+admin.site.register(Invoice)
+admin.site.register(InvoiceItem)
+admin.site.register(Payment)
+admin.site.register(Task)
+admin.site.register(Note)
+admin.site.register(Event)
+admin.site.register(Message)
+admin.site.register(Notification)
+admin.site.register(ActivityLog)

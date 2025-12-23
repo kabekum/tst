@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head><meta charset="utf-8"><title>Invoice #{{ invoice.id }}</title></head>
+  <body>
+    <h1>Invoice #{{ invoice.id }}</h1>
+    <p>Client: {{ invoice.client.name }}</p>
+    <p>Issued: {{ invoice.issued_on }}</p>
+    <table border="1" cellpadding="6" cellspacing="0">
+      <thead><tr><th>Description</th><th>Hours</th><th>Rate</th><th>Amount</th></tr></thead>
+      <tbody>
+        {% for item in invoice.items.all %}
+        <tr>
+          <td>{{ item.description }}</td>
+          <td style="text-align:right">{{ item.hours }}</td>
+          <td style="text-align:right">{{ item.rate }}</td>
+          <td style="text-align:right">{{ item.amount }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <h3>Total: {{ invoice.total_amount }}</h3>
+  </body>
+</html>

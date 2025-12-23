@@ -1,0 +1,12 @@
+[
+  {
+    "model": "core.firm",
+    "pk": 1,
+    "fields": {"name": "Acme Law", "address": "Example St", "phone": "555-0100"}
+  },
+  {
+    "model": "core.user",
+    "pk": 1,
+    "fields": {"username":"admin","is_superuser":true,"is_staff":true,"password":"pbkdf2_sha256$..." }
+  }
+]
